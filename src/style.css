@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* 📌 @theme → Untuk mendefinisikan warna, font, atau variabel baru yang bisa digunakan di seluruh proyek. 📌 @utility → Untuk mengubah class bawaan Tailwind agar sesuai dengan kebutuhan kita. 📌 @layer components → Untuk membuat class custom, biasanya kalau menggunakan @apply, berarti kita sedang memanfaatkan class bawaan Tailwind dalam class kita sendiri. */
+
+@theme {
+  --color-primary: oklch(58.6% 0.253 17.585);
+  --color-dark: #212121;
+  --color-secondary: oklch(27.9% 0.041 260.031);
+  --breakpoint-2xl: 1320px;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@utility body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer components {
+  .btn-hub {
+    @apply text-base font-bold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out;
+  }
+  .php {
+    @apply bg-gradient-to-r from-[#5e64bb] via-[#000fe7] to-[#5e64bb] bg-clip-text text-transparent;
+  }
+
+  .js {
+    @apply bg-gradient-to-r from-[#F0DB4F] via-[#ffc800] to-[#F0DB4F] bg-clip-text text-transparent;
+  }
+
+  .hamburger-line {
+    @apply w-[30px] h-[2px] my-2 block bg-dark;
+  }
+
+  .hamburger-active > span:nth-child(1) {
+    @apply rotate-45 origin-top-left;
+  }
+
+  .hamburger-active > span:nth-child(2) {
+    @apply scale-0;
+  }
+
+  .hamburger-active > span:nth-child(3) {
+    @apply -rotate-45 origin-bottom-left;
+  }
+
+  .navbar-fixed {
+    @apply fixed z-[9999] shadow-md;
+    backdrop-filter: blur(5px);
+  }
+
+  .sosmed-logo {
+    @apply w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white transition duration-300;
+  }
+}
